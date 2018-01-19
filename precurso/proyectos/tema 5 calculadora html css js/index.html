@@ -1,0 +1,55 @@
+<!doctype html>
+<head>
+	<title>Calculadora Html/css/js</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body>
+<div class="wrapper">
+	<div class="calculator">
+		<p id="pantalla"></p>
+
+		<div class="fila">
+			<input type="button" class="botonop" id="<" value="<" onclick="getBack()">
+			<input type="button" class="botonop" id="ce" value="ce" onclick="parcialReset()">
+			<input type="button" class="botonop" id="" value="c" onclick="reset()">			
+			<input type="button" class="botonop" id="/" value="/" onclick="operador1(this)">
+		</div>
+
+		<div class="fila">
+			<input type="button" class="boton" id="7" value="7" onclick="getNumber('7')">
+			<input type="button" class="boton" id="8" value="8" onclick="getNumber('8')">
+			<input type="button" class="boton" id="9" value="9" onclick="getNumber('9')">
+			<input type="button" class="botonop" id="x" value="x" onclick="operador1(this)">
+
+		</div>
+
+		<div class="fila">
+			<input type="button" class="boton" id="4" value="4" onclick="getNumber('4')">
+			<input type="button" class="boton" id="5" value="5" onclick="getNumber('5')">
+			<input type="button" class="boton" id="6" value="6" onclick="getNumber('6')">
+			<input type="button" class="botonop" id="-" value="-" onclick="operador1(this)">
+
+		</div>
+
+		<div class="fila">
+			<input type="button" class="boton" id="1" value="1" onclick="getNumber('1')">
+			<input type="button" class="boton" id="2" value="2" onclick="getNumber('2')">
+			<input type="button" class="boton" id="3" value="3" onclick="getNumber('3')">
+			<input type="button" class="botonop" id="+" value="+" onclick="operador1(this)">
+						
+		</div>
+
+		<div class="fila">
+			<input type="button" class="boton" id="0" value="0" onclick="getNumber('0')">
+			<input type="button" class="boton" id="." value="." onclick="getNumber('.')">
+			<input type="button" class="boton" id="√" value="√" onclick="result2()">
+			
+			<input type="button" class="botonigual" id="=" value="=" onclick="result()">
+		</div>
+
+	</div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

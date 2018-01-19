@@ -1,0 +1,54 @@
+html{font-family:'Source Sans Pro',sans-serif;}
+body{margin:auto;width:1200px;height:700px;border:1px solid gray;}
+.wrapper{width:100%;height:100%;background-color:#66A7D3;}
+.wrapper #title{position:absolute;left:42%;top:10%;}
+.wrapper #title h1{margin:0px;color:white;font-weight:900;}
+.wrapper #title p{position:relative;max-width:300px;color:white;margin-top:30px;}
+#info{position:absolute;width:300px;margin-left:90px;margin-top:100px;}
+#info #actual{display:block;clear:both;margin-bottom:20px;min-height:100px;}
+#info #muestratiempo{display:block;clear:both;margin-top:50px;}
+#info #muestratiempo #tiempo{color:white;border:1px solid white; width:20px;width:20px;padding-left:10px;padding-right:15px;padding-top:5px;padding-bottom:5px;font-size:22px;font-weight:400;}
+#info h3{color:#EADC2F;}
+#info .infodata{color:white;float:left;margin-right:20px;font-size:20px; font-weight:400;}
+#info #clasificacion{margin-top:50px;}
+#info #clasificacion #puntuaciones{color:white;float:left;margin-right:20px;font-size:20px; font-weight:400;}
+.showPanel{margin-left:600px;width:600px;margin-top:100px;}
+.showPanel .panel{}
+.showPanel .panel ul{list-style-type: none;}
+.showPanel .panel ul li{color:white;border:1px solid white;width:20px;padding-left:12px;padding-right:5px;padding-top:5px;padding-bottom:5px;font-size:22px;font-weight:400;}
+.showPanel .panel ul #letter0{position:relative;left:0px;top:0px;}
+.showPanel .panel ul #letter1{position:relative;left:55px;top:-40px;}
+.showPanel .panel ul #letter2{position:relative;left:110px;top:-80px;}
+.showPanel .panel ul #letter3{position:relative;left:165px;top:-120px;}
+.showPanel .panel ul #letter4{position:relative;left:220px;top:-160px;}
+.showPanel .panel ul #letter5{position:relative;left:275px;top:-200px;}
+.showPanel .panel ul #letter6{position:relative;left:330px;top:-240px;}
+.showPanel .panel ul #letter7{position:relative;left:385px;top:-280px;}
+.showPanel .panel ul #letter8{position:relative;left:385px;top:-265px;}
+.showPanel .panel ul #letter9{position:relative;left:385px;top:-250px;}
+.showPanel .panel ul #letter10{position:relative;left:385px;top:-235px;}
+.showPanel .panel ul #letter11{position:relative;left:385px;top:-220px;}
+.showPanel .panel ul #letter12{position:relative;left:385px;top:-205px;}
+.showPanel .panel ul #letter13{position:relative;left:330px;top:-190px;}
+.showPanel .panel ul #letter14{position:relative;left:275px;top:-230px;}
+.showPanel .panel ul #letter15{position:relative;left:220px;top:-270px;}
+.showPanel .panel ul #letter16{position:relative;left:165px;top:-310px;}
+.showPanel .panel ul #letter17{position:relative;left:110px;top:-350px;}
+.showPanel .panel ul #letter18{position:relative;left:55px;top:-390px;}
+.showPanel .panel ul #letter19{position:relative;left:0px;top:-430px;}
+.showPanel .panel ul #letter20{position:relative;left:-55px;top:-470px;}
+.showPanel .panel ul #letter21{position:relative;left:-55px;top:-565px;}
+.showPanel .panel ul #letter22{position:relative;left:-55px;top:-660px;}
+.showPanel .panel ul #letter23{position:relative;left:-55px;top:-755px;}
+.showPanel .panel ul #letter24{position:relative;left:-55px;top:-850px;}
+.showPanel .panel ul #letter25{position:relative;left:-55px;top:-945px;}
+.wrapper #cajatexto1{position:absolute;left:42%;right:30%;top:35%;bottom:30%;max-width:200px;}
+.wrapper #cajatexto1 #nombreUsuario{border:none;box-shadow:none;height:30px;width:180px;}
+.wrapper #cajatexto1 #jugar{border:none;box-shadow:none;height:30px;width:180px;background-color:#5B78B2;color:white;margin-top:20px;}
+.showPanel #cajatexto2{position:relative;left:75px;top:-970px;}
+.showPanel #cajatexto2 #pregunta{max-width:300px;height:100px;font-size:18px;color:white;font-weight:300;overflow-y:hidden;}
+.showPanel #cajatexto2 #respuestaUsuario{clear:both;display:block;width:300px;margin-top:30px;height:30px;}
+.showPanel #cajatexto2 #enviar{background-color:#5B78B2;box-shadow:none;color:black;border:none;height:30px;width:90px;margin-top:15px;font-size:18px;}
+.showPanel #cajatexto2 #pasapalabra{background-color:rgb(234, 220, 47);box-shadow:none;color:black;border:none;height:30px;width:150px;margin-top:15px;margin-left:60px;font-size:18px;}
+#finalizar{border:none;box-shadow:none;color:white;background:none;width:50px;height:50px;font-size:30px;}
+.finaliza{position:absolute;left:1250px;top:50px;}

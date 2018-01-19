@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet">
+
+</head>
+<body>
+	<div class="wrapper">
+		<div id="title">
+			<h1>PASAPALABRA</h1>
+			<p>Bienvenidos al juego de pasapalabra. Pulse play para empezar, si sabe la respuesta escríbala y pulse enviar, si no, pulse pasapalabra para que pase a la siguiente pregunta </p>
+		</div>
+		<div id="cajatexto1">
+			<input type="text" id="nombreUsuario" placeholder="Introduce tu nombre" value="">
+			<input type="button" id="jugar" value="jugar" onclick="hideTextBox()">	
+		</div>
+
+		<div id="info">
+
+				<div id="actual">
+					<h3 id="datosactuales" style="display:none;">DATOS ACTUALES</h3>			
+					<div id="usuario" class="infodata">
+					</div>
+					<div id="puntos" class="infodata">
+					</div>
+					<div id="fallos" class="infodata">
+					</div>
+				</div>
+				<div id="muestratiempo" style="display:none;">
+					<h3 >TIEMPO</h3>
+					<div id="tiempo">
+					</div>
+				</div>
+			
+
+			<div id="clasificacion" style="display:none;">
+				<div id="clasificaciontitulo">
+					<h3>CLASIFICACIÓN</h3>
+				</div>
+				<table id="puntuaciones">
+					<tr>
+						<th>Usuarios</th>
+						<th>Aciertos</th>
+						<th>Fallos</th>
+					</tr>
+				</table>
+
+			</div>
+
+		</div>
+
+
+		
+
+		<div class="reseteo">
+			<input type="button" value="play again" id="resetear" onclick="resetGame()" style="display:none">
+		</div>
+		<div class="reseteo">
+			<input type="button" value="resetear valores" id="resetearvalores" onclick="resetValues()">
+		</div>
+
+		<div class="finaliza" id="quit" style="display:none;">
+			<input type="button" value="X" id="finalizar" onclick="quitGame()">
+		</div>
+
+		
+		<div class="showPanel" id="muestrapanel" style="display:none">
+			<div class="panel">
+				<ul>
+					<li id="letter0">A</li>
+					<li id="letter1">B</li>
+					<li id="letter2">C</li>
+					<li id="letter3">D</li>
+					<li id="letter4">E</li>
+					<li id="letter5">F</li>
+					<li id="letter6">G</li>
+					<li id="letter7">H</li>
+					<li id="letter8">I</li>
+					<li id="letter9">J</li>
+					<li id="letter10">K</li>
+					<li id="letter11">L</li>
+					<li id="letter12">M</li>
+					<li id="letter13">N</li>
+					<li id="letter14">O</li>
+					<li id="letter15">P</li>
+					<li id="letter16">Q</li>
+					<li id="letter17">R</li>
+					<li id="letter18">S</li>
+					<li id="letter19">T</li>
+					<li id="letter20">U</li>
+					<li id="letter21">V</li>
+					<li id="letter22">W</li>
+					<li id="letter23">X</li>
+					<li id="letter24">Y</li>
+					<li id="letter25">Z</li>
+				</ul>
+			</div>
+
+			<div id="cajatexto2" style="display:none;">
+				<div id="pregunta"></div>
+				<input type="text" id="respuestaUsuario" placeholder="Introduce tu respuesta" value="">
+				<input type="button" id="enviar" value="enviar" onclick="checkAnswer()">
+				<input type="button" id="pasapalabra" value="pasapalabra" onclick="next()">
+			</div>
+		</div>
+
+	</div>
+<script src="js/main.js">
+</script>
+</body>
+</html>

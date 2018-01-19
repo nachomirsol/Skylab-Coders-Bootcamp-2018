@@ -1,0 +1,20 @@
+planificacion:
+- necesitaremos una función que opere con 2 numeros
+- necesitaremos una funcion que permita operar solo con un numero
+- necesitaremos una función que muestre en pantalla los valores introducidos
+- necesitaremos una función de resultado que muestre el valor de la operación realizada
+- necesitaremos una función para resetear los valores
+- necesitaremos una funcion para borrar elementos introducidos
+
+orden lógico:
+- Estado inicial de la calculadora inactiva, muestro el cero
+- Si la calculadora esta inactiva y con el cero, hago click en un número, lo muestro en la pantalla en lugar del cero, lo guardo.
+- Ya hemos clickado y guardado un número, si seguimos escribiendo números, añádelos al número ya guardado.
+- Si apretamos un operador de uno, muestro el resultado
+- Si apretamos un operador de dos, guardamos el número guardado en una variable temporal y apretamos el segundo.
+
+variables necesarias
+- Variable de inicialización de la true o false
+- Variable de iniciar operación true o false
+- Variable de número inicial de calculadora
+- Variable de almacenamiento temporal de número 

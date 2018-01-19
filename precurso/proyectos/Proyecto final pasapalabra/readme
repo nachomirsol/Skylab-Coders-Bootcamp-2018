@@ -1,0 +1,7 @@
+Skylab coders final precourse project. Pasapalabra game.
+
+How does it work?
+You will have a letter panel from A to Z, each letter has a question wich answer starts or has that letter.
+If you dont know the answer of the question, just press pasa-palabra in order to reach the next question. Otherwise just write the
+answer in the input box and if correct, background letter turns to green, if fail, just turns to red.
+If you complete the panel, you will be asked to play again or not.
