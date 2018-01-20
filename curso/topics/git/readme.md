@@ -154,6 +154,43 @@ Last step is make a git push, for save changes in my-fork-repo-master:
 $ git push
 ```
 
+##### Working in local:
+
+First we create the repo in github. Then we make a git init in the folder where we want to have the repo.
+We can have a good directory structure.
+
+For every change we make in our directories or files we can do git add . in order to put everything at the staging area.
+If whole things are at the staging area we can do git commit -m 'comment about the changes'
+
+```bash
+So at the end we had:
+1- git init for the .git file at the repo
+2- git add <folder name/file name> or git add .
+3- git commit -m 'comment'
+```
+
+##### Remote:
+If we have commited all changes at local, we can send it to remote by doing git push url.
+But if it is the first time you make push, you have to link your url remote with your local:
+git remote add origin https://github.com/username/myproject.git
+then, git push origin master
+
+```bash
+So at the end we had:
+1- git remote add origin https://github.com/username/myproject.git - in order to link local with repo
+2- git push origin master - to send local commited changes to remote
+```
+
+##### Forks
+When you like the repository of someone or you just have to work in it you can have it in your github or in your local.
+To copy the repository of someone you have to make a fork. When you do it you have it at your remote github account.
+To bring it to local you have to clone the forked repo.
+
+```bash
+1- Fork the repository you want in github to have it in your remote
+2- git clone url - to clone the repository from your github to local.
+```
+
 
 
 
