@@ -187,3 +187,21 @@ add.call(o,5,7)// parameters are passed as arguments in the function call, first
 
 //in apply the first parameter is the object to use as this, second is an array
 add.apply(o,[5,7]);
+```
+
+### Bind
+Bind puede utilizarse para asociarle de forma permanente como this el objeto que queramos a una función.
+```javascript
+var alice = {
+    name:"alice"
+}
+
+var eve = {
+    name: "eve",
+    talk: function(greeting){
+        return (greeting + ", my name is "+this.name);
+    }.bind(alice)// bound to alice
+}
+
+eve.talk("Hello") // => hello, my name is alice
+eve.talk.call({name:"paco"},"HOLA")// => HOLA, my name is alice
