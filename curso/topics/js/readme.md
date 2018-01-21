@@ -37,6 +37,7 @@ Using this inside a method points to our object
 This case you can make a constructor function with properties and methods as function parameters with a "this". Then you can create instances
 of that object function with "new", new User();
 it is highly recommended to create properties inside the constructor function and methods outside because of memory.
+Parameters of the constructor function are not obligatory.
 
 ```javascript
 
@@ -56,8 +57,77 @@ function User(id,userName,password,mail,rol){
 var nacho = new User(1,"Nacho","1234","nachomirsol@gmail.com","User");
 console.log(nacho)
 ```
+You dont need the parameters in the constructor function, you can create like this way:
+
+```javascript
+
+function Customer(){
+    this.name;
+    this.date;
+    this.address;
+}// now we have an empty constructor function
+
+//first we create the object instance and then we add properties
+var customer = new Customer(); 
+customer.name="Nachal";
+customer.date="16-05-1983";
+customer.address = "Calle la lloma";
+customer.name;
+
+```
 To access a method in constructor functions we need to create it with prototype in order to access the instances.
 We show the Object by calling the instance.
+
+####private and public properties and methods(members)
+We can create public and private members inside the constructor function.
+
+1- Public members
+
+Using this inside constructor function or prototype with object after constructor function:
+```javascript
+function Customer(name,date,address){
+    this.name = name;
+    this.date = date;
+    this.address = address;
+
+}
+Customer.prototype.greeting = function(){
+       return ( "Hi "+this.name+" how you doing");
+}
+var customer = new Customer("Nacho","16-05-1983","calle la lloma");
+customer.greeting();
+
+```
+2- Private members
+Using var instead of this, like for example:
+```Javascript
+
+function Customer(name,date,address){
+    var name;
+    var date;
+    var address;
+    var greeting = function(){
+        return "Hi man";
+    }
+}
+var customer = new Customer("Nacho","16-05-1983","calle la lloma");
+customer.name;
+
+
+
+```
+####CONCLUSIONS
+If we want accessible methods we should use prototype after the function
+
+#####Inside constructor function
+inside constructor function, a method can be used like this:
+this.greeting = function(){}
+Customer.prototype.greeting = function(){}
+
+#####Outside a constructor function
+Outside a constructor function a method can be added or used like this:
+Customer.prototype.greeting = function(){}
+
 
 ### Prototype
 Every function has a prototype property that contains an object. Prototype is like a matrix that lets the object
