@@ -154,6 +154,14 @@ Last step is make a git push, for save changes in my-fork-repo-master:
 $ git push
 ```
 
+
+##### Other to update forked repo from original repo:
+```bash
+git remote add upstream https://github.com/original/proyecto.git(url del proyecto original de donde has hecho fork)
+```
+```bash
+git fetch upstream
+```
 ##### Working in local:
 
 First we create the repo in github. Then we make a git init in the folder where we want to have the repo.
@@ -190,6 +198,10 @@ To bring it to local you have to clone the forked repo.
 1- Fork the repository you want in github to have it in your remote
 2- git clone url - to clone the repository from your github to local.
 ```
+http://aprendegit.com/fork-de-repositorios-para-que-sirve/
+
+##### Fork update
+http://community.logicalbricks.com/node/217
 
 
 
