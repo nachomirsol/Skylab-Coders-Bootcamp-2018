@@ -1,6 +1,6 @@
-#Javascript Objects
+# Javascript Objects
 
-##Objects
+## Objects
 Objects can store info, they are containers of info as the arrays, but there are composed by properties(key:values) and methods(functions()).
 
 There are 3 main ways to create objects:
@@ -78,7 +78,7 @@ customer.name;
 To access a method in constructor functions we need to create it with prototype in order to access the instances.
 We show the Object by calling the instance.
 
-####private and public properties and methods(members)
+#### private and public properties and methods(members)
 We can create public and private members inside the constructor function.
 
 1- Public members
@@ -113,25 +113,28 @@ function Customer(name,date,address){
 var customer = new Customer("Nacho","16-05-1983","calle la lloma");
 customer.name;
 
-
-
 ```
-####CONCLUSIONS
-If we want accessible methods we should use prototype after the function
+#### CONCLUSIONS
+If we want accessible methods we should use prototype function.
+If we want accessible properties we should use this.x = x inside constructor
+we can create methods inside constructor by using this.greeting = function(){}
+or outside a function using prototype.
 
-#####Inside constructor function
+
+##### Inside constructor function
 inside constructor function, a method can be used like this:
 this.greeting = function(){}
 Customer.prototype.greeting = function(){}
 
-#####Outside a constructor function
+##### Outside a constructor function
 Outside a constructor function a method can be added or used like this:
 Customer.prototype.greeting = function(){}
 
 
 ### Prototype
-Every function has a prototype property that contains an object. Prototype is like a matrix that lets the object
-to inherit everything. Its also an object that contains predefined functions.
+Every function has a prototype property that contains an object. Prototype is like a matrix that lets the object to inherit everything. 
+Its also an object that contains predefined functions.
+
 Prototype functions are accesible so if we want to create an object with private methods we wont use prototype.
 "Al crear objetos usando una función como constructor, estos objetos adquieren un enlace secreto(_proto_) que apunta al prototipo
 de esta función constructora, lo que les permite acceder a sus propiedades y métodos como si fueran propios."

@@ -329,7 +329,6 @@ tempArray.shuffleRandom();
 console.log(tempArray); 
 
 
-
 //////////////////////////////////////////
 //generate Array steps
 //////////////////////////////////////////
@@ -341,3 +340,68 @@ function generateSteps(n1,n2){
     return arr;
 }
 console.log(generateSteps(1,5));
+
+
+//////////////////////////////////////////
+//flatten array
+//////////////////////////////////////////
+
+
+
+//////////////////////////////////////////
+//Union array
+//////////////////////////////////////////
+
+
+function unionArray(arr1,arr2){
+    var arrUnion = arr1.concat(arr2);
+    console.log(arrUnion);
+}
+unionArray([1,2,3,4],["a","b","c"]);
+
+
+//////////////////////////////////////////
+//Remove falsy
+//////////////////////////////////////////
+
+
+function removeFalsy(arr){
+    
+    for(var i=0;i<arr.length;i++){
+        if(typeof arr[i]==="null" || typeof arr[i]==="boolean" || typeof arr[i]==="undefined" || typeof arr[i]==="object"){
+            arr.splice(i,1);
+        }
+    }
+    return arr;
+}
+
+removeFalsy(["nacho",undefined,45,0,null,NaN,"crack",15]);// review
+
+
+//////////////////////////////////////////
+//Return first element of an array
+//////////////////////////////////////////
+
+
+function firstElement(arr,n){
+    if(arr==null){
+        return void 0;
+    }
+    if(n==null){
+        return arr[0];
+    }
+    if(n<0){
+        return [];
+        return arr.slice(0, n);
+    }
+}
+console.log(firstElement([7, 9, 0, -2])); 
+console.log(firstElement([],3));
+console.log(firstElement([7, 9, 0, -2],3));
+console.log(firstElement([7, 9, 0, -2],6));
+console.log(firstElement([7, 9, 0, -2],-3));
+
+
+//////////////////////////////////////////
+//Sort objects title
+//////////////////////////////////////////

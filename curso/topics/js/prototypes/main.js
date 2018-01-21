@@ -148,6 +148,7 @@ function Hangman(word,attempt){
 }
 
 var result = new Hangman("expected",10);
+result.word
 result.try("e");
 
 ////////////////////////////////////DETECTAR IF A CHAR IS A NUMBER/////////////////////////////////////
