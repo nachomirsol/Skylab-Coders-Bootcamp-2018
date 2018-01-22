@@ -278,3 +278,16 @@ var eve = {
 
 eve.talk("Hello") // => hello, my name is alice
 eve.talk.call({name:"paco"},"HOLA")// => HOLA, my name is alice
+
+```
+### For in...for of
+
+## High order functions
+
+### Filter
+
+### Map
+
+### Reduce
+
+

@@ -134,34 +134,6 @@ How to see remote links of my repo
 $ git remote -v
 ```
 
-##### 3 steps for update my fork-repo from master-repo:
-
-How to bring the change's from master-repo to my-fork-repo-local:
-
-```bash
-$ git fetch upstream
-```
-
-How to merge(save) changes from upstream/masyrt yo my-fork-repo-local:
-
-```bash
-$ git merge upstream/master
-```
-
-Last step is make a git push, for save changes in my-fork-repo-master:
-
-```bash
-$ git push
-```
-
-
-##### Other to update forked repo from original repo:
-```bash
-git remote add upstream https://github.com/original/proyecto.git(url del proyecto original de donde has hecho fork)
-```
-```bash
-git fetch upstream
-```
 ##### Working in local:
 
 First we create the repo in github. Then we make a git init in the folder where we want to have the repo.
@@ -193,16 +165,59 @@ So at the end we had:
 When you like the repository of someone or you just have to work in it you can have it in your github or in your local.
 To copy the repository of someone you have to make a fork. When you do it you have it at your remote github account.
 To bring it to local you have to clone the forked repo.
+You can also update the original repo by doing fetch
 
 ```bash
 1- Fork the repository you want in github to have it in your remote
 2- git clone url - to clone the repository from your github to local.
 ```
+##### 3 steps for update my fork-repo from master-repo:
+
+1- How to bring the change's from master-repo to my-fork-repo-local:
+
+```bash
+$ git fetch upstream
+```
+
+2- How to merge(save) changes from upstream/masyrt yo my-fork-repo-local:
+
+```bash
+$ git merge upstream/master
+```
+
+3- Last step is make a git push, for save changes in my-fork-repo-master:
+
+```bash
+$ git push
+```
+
+
+##### Other way to update forked repo from original repo:
+
+```bash
+git remote add upstream https://github.com/original/proyecto.git(url del proyecto original de donde has hecho fork)
+```
+```bash
+git fetch upstream
+```
+
+```bash
+git pull upstream develop
+```
+
 http://aprendegit.com/fork-de-repositorios-para-que-sirve/
 
 ##### Fork update
 http://community.logicalbricks.com/node/217
+https://gist.github.com/CristinaSolana/1885435
 
+#### Pull request
+A pull request is query that the owner of the forked repo makes to the owner of the repo in order to let the repo owner
+to include last commit changes. Just have to create new branch and do the pull from that branch, link it with add upstream..
+
+```bash
+git push --all -u
+```
 
 
 
