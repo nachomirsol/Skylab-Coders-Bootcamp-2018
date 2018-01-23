@@ -50,9 +50,19 @@ array_clone([1,2,3,4,6]);
 // Find Differences
 //////////////////////////////////////////
 
-function findDifferences(arr1,arr2){
-
+function difference(arr1, arr2) {
+    return arr1
+      .filter(el => !arr2.includes(el))
+      .concat(
+        arr2.filter(el => !arr1.includes(el))
+      )
 }
+
+
+  console.log(difference([1, 2, 3], [100, 2, 1, 10])); 
+  console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]]));
+  console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+
 
 
 //////////////////////////////////////////
@@ -66,8 +76,7 @@ function sumArray(arr){
         sum=sum+arr[i];
         product = product*arr[i];
     }
-    return sum;
-    return product;
+    return "Sum: "+sum+", product: "+product;
 }
 sumArray([1,3,4]);
 // we can test it also with reduce

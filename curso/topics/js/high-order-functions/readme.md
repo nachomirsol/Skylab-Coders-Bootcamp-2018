@@ -4,7 +4,8 @@
 ## map
 
 map creates a new array with the results of the function call over each element of the array.
-The map function acts over each element of the array
+The map function acts over each element of the array. With map function we modify each element
+of the array in the same way.
 
 ```javascript
 var numbers = [2,3,4,5,6];

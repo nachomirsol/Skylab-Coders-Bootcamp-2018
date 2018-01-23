@@ -8,7 +8,7 @@ There are 3 main ways to create objects:
     2- Constructor functions: instances.
     3- Creating functions that contain other objects
 
-### Object literal notation
+### 1- Object literal notation
 ```javascript
 
 var user = {
@@ -33,7 +33,7 @@ user.userName // in case of property
 Using this inside a property points to window object
 Using this inside a method points to our object
 
-### Object constructor function
+### 2- Object constructor function
 This case you can make a constructor function with properties and methods as function parameters with a "this". Then you can create instances
 of that object function with "new", new User();
 it is highly recommended to create properties inside the constructor function and methods outside because of memory.
@@ -130,6 +130,7 @@ Customer.prototype.greeting = function(){}
 Outside a constructor function a method can be added or used like this:
 Customer.prototype.greeting = function(){}
 
+## Advanced Javascript concepts
 
 ### Prototype
 Every function has a prototype property that contains an object. Prototype is like a matrix that lets the object to inherit everything. 
@@ -143,10 +144,11 @@ a pointer to another object. We call this pointer the object's prototype.
 
 
 ### Polyfill
-We can create and implement our own predefined functions and use them by doing polyfill. For example we can create an array random
+We can create and implement, change or extension of our own predefined functions and use them by doing polyfill. For example we can create an array random
 shuffle polyfill in order to use it when you need it. You can also change behavior of predefined functions, for example foreach.
 
  ```javascript
+
 Array.prototype.preFilled(num,elm){
     if(typeof num==="number" && typeof elm != "object"){
         var arr = [];
@@ -158,9 +160,224 @@ Array.prototype.preFilled(num,elm){
         return "You need to put number as first param and string or number as second";
     }
 }
+
+```
+
+### Scope (alcance de una variable)
+Scope can be global (accessible outside or inside the function) or local(accesible only inside function)
+
+### Closures (functions inside functions)
+
+A closure is an inner function that has access to the outer (enclosing) function’s variables—scope chain. The closure has three scope chains: it has access to its own scope (variables defined between its curly brackets), it has access to the outer function’s variables, and it has access to the global variables.
+
+The inner function has access not only to the outer function’s variables, but also to the outer function’s parameters. Note that the inner function cannot call the outer function’s arguments object,however, even though it can call the outer function’s parameters directly.
+
+This is a good practice if we dont want to load everything each time we invoque function.
+Inside a function inside a method of an object we may want to point a this to the object. We can use a call or self=this outside the closure function to access.
+
+```javascript
+var user = {
+    id:1,
+    name:"Nacho",
+    email:"nachomirsol@gmail.com",
+    password:"1234asdf",
+    createLeague:function create(){//closure
+        var surname = "Miralles";
+        var self = this;// sin esto no podríamos acceder a this.name 
+        function completeName(){
+            
+            return self.name+" "+surname+" has created a league";
+        }
+        return completeName();
+    }
+};
+
+user.createLeague();
+```
+
+Main applications:
+
+1. Execute retarded functions(setTimeOut or setInterval)
+2. Access from private to public members
+```javascript
+
+function Constructor(msjPrivado, msjPublico) {
+ 
+     var propiedadPrivada = msjPrivado;
+     this.propiedadPublica = msjPublico;
+ 
+     var that = this; 
+    /*
+       La variable 'that' será guardada en el closure para ser 
+       utilizada en su momento por la función metodoPrivado()
+    */
+ 
+     var metodoPrivado = function () {
+         alert(propiedadPrivada);
+         alert(that.propiedadPublica);
+     };
+ 
+     this.metodoPublico = function () {
+          metodoPrivado();
+     };
+}
+ 
+ 
+var obj = new Constructor("mensaje privado", "mensaje público");
+obj.metodoPublico(); 
+
+```
+
+Closures Rules and Side Effects:
+
+1. Closures have access to the outer function’s variable even after the outer function returns.
+```javascript
+function celebrityName (firstName) {
+    var nameIntro = "This celebrity is ";
+    // this inner function has access to the outer function's variables, including the parameter​
+   function lastName (theLastName) {
+        return nameIntro + firstName + " " + theLastName;
+    }
+    return lastName;
+}
+​
+​var mjName = celebrityName ("Michael"); // At this juncture, the celebrityName outer function has returned.​
+​
+​// The closure (lastName) is called here after the outer function has returned above​
+​// Yet, the closure still has access to the outer function's variables and parameter​
+mjName ("Jackson"); // This celebrity is Michael Jackson 
+```
+2. Closures store references to the outer function’s variables; they do not store the actual value.  Closures get more interesting when the value of the outer function’s variable changes before the closure is called.
+```javascript
+function celebrityID () {
+    var celebrityID = 999;
+    // We are returning an object with some inner functions​
+    // All the inner functions have access to the outer function's variables​
+    return {
+        getID: function ()  {
+            // This inner function will return the UPDATED celebrityID variable​
+            // It will return the current value of celebrityID, even after the changeTheID function changes it​
+          return celebrityID;
+        },
+        setID: function (theNewID)  {
+            // This inner function will change the outer function's variable anytime​
+            celebrityID = theNewID;
+        }
+    }
+​
+}
+​
+​var mjID = celebrityID (); // At this juncture, the celebrityID outer function has returned.​
+mjID.getID(); // 999​
+mjID.setID(567); // Changes the outer function's variable​
+mjID.getID(); // 567: It returns the updated celebrityId variable 
+```
+
+3. Closures Gone Awry. Because closures have access to the updated values of the outer function’s variables, they can also lead to bugs when the outer function’s variable changes with a for loop. Thus:
+```javascript
+// This example is explained in detail below (just after this code box).​
+​function celebrityIDCreator (theCelebrities) {
+    var i;
+    var uniqueID = 100;
+    for (i = 0; i < theCelebrities.length; i++) {
+      theCelebrities[i]["id"] = function ()  {
+        return uniqueID + i;
+      }
+    }
+    
+    return theCelebrities;
+}
+​
+​var actionCelebs = [{name:"Stallone", id:0}, {name:"Cruise", id:0}, {name:"Willis", id:0}];
+​
+​var createIdForActionCelebs = celebrityIDCreator (actionCelebs);
+​
+​var stalloneID = createIdForActionCelebs [0];  console.log(stalloneID.id()); // 103
+```
+
+```javascript
+
+function showName (firstName, lastName) {
+​var nameIntro = "Your name is ";
+    // this inner function has access to the outer function's variables, including the parameter​
+​function makeFullName () {      
+​return nameIntro + firstName + " " + lastName;  
+}
+​
+​return makeFullName ();
+}
+​
+showName ("Michael", "Jackson"); // Your name is Michael Jackson 
+
+```
+Otro ejemplo:
+
+```javascript
+
+var countVowels;
+(function () {
+   var regex = /[aáàäèéëeìíïiòóoöúùüu]/g;
+
+   countVowels =function(text){// this function is accessing to outside variable regex so that when we invoque it, regex does not have to load each time
+       return text.split("").reduce(function (vowelsCount, letter) {
+          
+           if (letter.toLowerCase().match(regex)) {
+               return vowelsCount += 1
+           }
+           return vowelsCount
+       }, 0)
+   }
+})()
+
+```
+
+
+
+### Callback
+
+We talk about Callback when you pass a function as a parameter so that the function you passed executes our param.
+pasar una función como parámetro para que dicha función se encargue de ejecutar nuestro parámetro.
+
+```javascript
+
+function hagoAlgo(callback) {
+    callback();
+}
+
+hagoAlgo(function(){
+    console.log('Hola Anexsoft !!');
+});
+
+```
+
+### Self-executing anonimous function
+
+Self executing functions are functions that executes automatically without invoque them
+```javascript
+
+(function() {
+	alert('Hello World');
+})();// ()brackets is what allows the function to execute
+
+```
+
+Lets see another example:
+
+```javascript
+(function() {
+	var Person = {
+		sayHello: function() {
+			alert('Hello World');
+		}
+	}
+
+	Person.sayHello();//What is going to execute
+})();
+
 ```
 
 ### this
+
 This es una propiedad del contexto de ejecución. El valor del this en el código global es siempre el Objeto Global.
 This dentro de la propiedad de un objeto apunta al objeto global, en cambio this dentro del método de un objeto apunta al objeto en cuestión.
 Comportamiento del this:
@@ -191,6 +408,7 @@ En una función que está a nivel de programa, el valor del this corresponde al 
 ```
 
  #### 3-This en un método de un prototipo
+
  Si el método pertenece a un objeto que está en la cadena de prototipos, su this también se corresponderá con el objeto sobre el que se le llama.
 
  ```javascript
@@ -206,6 +424,7 @@ oInstance.b = 4;
 ```
 
 #### 4-This en una función constructora
+
 Si se utiliza como constructor (con new), su this apuntará al nuevo objeto creado, es decir, a la instancia.
 
 ```javascript
@@ -227,6 +446,7 @@ h1.whoAreYou(); // "I am Donatello and i am a turtle ninja Super Hero"
 ```
 
 ### Call and Apply
+
 Si en la llamada a la función utilizamos call o apply, podemos asociar this a un objeto determinado que pasaremos como parametro.
 En otras palabras, utilizando call o apply podemos conseguir que this apunte al objeto que le digamos.
 
@@ -263,6 +483,7 @@ add.apply(o,[5,7]);
 ```
 
 ### Bind
+
 Bind puede utilizarse para asociarle de forma permanente como this el objeto que queramos a una función.
 ```javascript
 var alice = {
@@ -282,12 +503,58 @@ eve.talk.call({name:"paco"},"HOLA")// => HOLA, my name is alice
 ```
 ### For in...for of
 
-## High order functions
-
-### Filter
-
-### Map
-
-### Reduce
+## High Order Functions
 
 
+### map
+
+map creates a new array with the results of the function call over each element of the array.
+The map function acts over each element of the array. With map function we modify each element
+of the array in the same way.
+
+```javascript
+var numbers = [2,3,4,5,6];
+numbers.map(function(x){
+    return x*2;// applies this operation over each individual array element;
+});
+//[4,6,8,10,12]
+
+```
+
+### filter
+
+Filter creates a new array with all elements that pases a test of the implemented function.
+
+```javascript
+
+var months = ['january','february','march','april','may','june','july','august', 'september','october','november','december'];
+months.filter(function(x){
+    return x.length <= 3;
+});
+//["may"]
+```
+
+
+##Other concepts
+
+### Kata, koan, kojo
+
+### JSDoc
+
+SEE http://usejsdoc.org
+
+- JSDoc 3 es una API para generar documentación en Javascript.
+- Se puede descargar como un paquete de nmp para el entorno de ejecución node.js.
+- Se añaden comentarios directamente sobre el código comenzando con /**
+- Se pueden usar tags para dar más información, por ejemplo @constructor, @param,... (http://usejsdoc.org/#JSDoc3_Tag_Dictionary)
+- Una vez que el código está comentado de esta forma, se puede generar la documentación en HTML ejecutando comandos específicos (se almacenan en la carpeta out/ del directorio de trabajo).
+- La documentación se genera con una plantilla y configuración por defecto, modificable y extensible de acuerdo a nuestras necesidades.
+Un ejemplo de código:
+
+
+Links
+GitHub Repo https://github.com/jsdoc3/jsdoc
+Documentación: http://usejsdoc.org/
+
+Tutoriales
+https://github.com/dwyl/learn-jsdoc

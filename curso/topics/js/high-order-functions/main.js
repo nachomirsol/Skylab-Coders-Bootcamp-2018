@@ -32,13 +32,11 @@ filter();
 //////////////////////////////////////REDUCE///////////////////////////////////
 // Count vowels in text
 //////////////////////////////////////REDUCE///////////////////////////////////
-function reduce(){
-
-    var loremIpsum = 'prueba de texto, con ipsum';
-    var arrayIpsum = loremIpsum.split("");
-    var vowels = "aeiouAEIOU";
+function reduce(string){
+    var arrayIpsum = string.toLowerCase().split("");
+    var vowels = "aeiou";
     var countVowels = arrayIpsum.reduce(function(acc,current){
-        if(vowels.split("").indexOf(current)!==-1){
+        if(vowels.indexOf(current)!==-1){// podemos aplicar ternario
            return acc+1;
         }else{
             return acc;
@@ -46,7 +44,26 @@ function reduce(){
     },0);
     return countVowels;
 }
-reduce();
+reduce('prueba de texto, con ipsum');
+
+
+//BETTER SOLUTION
+
+
+var countVowels;
+(function () {
+   var regex = /[aáàäèéëeìíïiòóoöúùüu]/g;
+
+   countVowels =function(text){
+       return text.split("").reduce(function (vowelsCount, letter) {
+          
+           if (letter.toLowerCase().match(regex)) {
+               return vowelsCount += 1
+           }
+           return vowelsCount
+       }, 0)
+   }
+})()
 
 
 //////////////////////////////////////EVERY & SOME///////////////////////////////////
@@ -54,7 +71,7 @@ reduce();
 //////////////////////////////////////EVERY & SOME///////////////////////////////////
 
 
-function everySome(){
+function everySome(){// Convertir en closure
     var months = ['january','february','march','april','may','june','july','august', 'september','october','november','december'];
     var every = months.every(function(x){
         return x.length >=5;
@@ -71,3 +88,9 @@ function everySome(){
     }
 }
 everySome();
+
+
+
+//////////////////////////////////////CALLBACK///////////////////////////////////
+// Callback function
+//////////////////////////////////////CALLBACK///////////////////////////////////
