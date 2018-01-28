@@ -166,6 +166,54 @@ Array.prototype.preFilled(num,elm){
 ### Scope (alcance de una variable)
 Scope can be global (accessible outside or inside the function) or local(accesible only inside function)
 
+### Callback
+
+We talk about Callback when you pass a function as a parameter so that the function you passed executes our param.
+pasar una función como parámetro para que dicha función se encargue de ejecutar nuestro parámetro.
+
+```javascript
+
+function hagoAlgo(callback) {
+    callback();
+}
+
+hagoAlgo(function(){
+    console.log('Hola Anexsoft !!');
+});
+
+```
+
+### Self-executing anonimous function
+
+Self executing functions are functions that executes automatically without invoque them
+```javascript
+
+(function() {
+	alert('Hello World');
+})();// ()brackets is what allows the function to execute
+
+```
+
+Lets see another example:
+
+```javascript
+(function() {
+	var Person = {
+		sayHello: function() {
+			alert('Hello World');
+		}
+	}
+
+	Person.sayHello();//What is going to execute
+})();
+
+```
+
+### Recursive functions
+
+We talk about recursion or recursive functions when we have a function that executes itself inside the function.
+This can be really useful when we need to make some iteration and we cant apply standard loops. 
+
 ### Closures (functions inside functions)
 
 A closure is an inner function that has access to the outer (enclosing) function’s variables—scope chain. The closure has three scope chains: it has access to its own scope (variables defined between its curly brackets), it has access to the outer function’s variables, and it has access to the global variables.
@@ -328,51 +376,6 @@ var countVowels;
        }, 0)
    }
 })()
-
-```
-
-
-
-### Callback
-
-We talk about Callback when you pass a function as a parameter so that the function you passed executes our param.
-pasar una función como parámetro para que dicha función se encargue de ejecutar nuestro parámetro.
-
-```javascript
-
-function hagoAlgo(callback) {
-    callback();
-}
-
-hagoAlgo(function(){
-    console.log('Hola Anexsoft !!');
-});
-
-```
-
-### Self-executing anonimous function
-
-Self executing functions are functions that executes automatically without invoque them
-```javascript
-
-(function() {
-	alert('Hello World');
-})();// ()brackets is what allows the function to execute
-
-```
-
-Lets see another example:
-
-```javascript
-(function() {
-	var Person = {
-		sayHello: function() {
-			alert('Hello World');
-		}
-	}
-
-	Person.sayHello();//What is going to execute
-})();
 
 ```
 
