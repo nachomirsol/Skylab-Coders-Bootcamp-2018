@@ -17,9 +17,9 @@ https://jasmine.github.io/2.9/introduction
 It is very important to have a good folder structure, for example, one porposal is like the Hangman game:
 
 - 3 folder:
-    scripts: Hangman.js, our script
-    tests: HangmanSpec.js: Here we have the script to test our Hangman.js, with (describe/it)
-    vendor: All jasmine folder (js, css, html)
+    - scripts: Hangman.js, our script
+    - tests: HangmanSpec.js: Here we have the script to test our Hangman.js, with (describe/it)
+    - vendor: All jasmine folder (js, css, html)
 
 - index.html and SpecRunner.html
 
