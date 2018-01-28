@@ -21,7 +21,8 @@ It is very important to have a good folder structure, for example, one porposal 
     - tests: HangmanSpec.js: Here we have the script to test our Hangman.js, with (describe/it)
     - vendor: All jasmine folder (js, css, html)
 
-- index.html and SpecRunner.html
+- index.html, we just link the files
+- SpecRunner.html
 
 In index.html we just link the files for our Hangman.js file
 
