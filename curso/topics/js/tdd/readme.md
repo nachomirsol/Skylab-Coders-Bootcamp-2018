@@ -1,19 +1,19 @@
-#TDD
+# TDD
 Test driven development is a modern technique to review code in order to ensure the script works perfect.
 We can do it manually but there are also some tools that makes it easier for you, jasmine is one of them.
 
-##Jasmine
+## Jasmine
 Jasmine lets you test script in an easier and visual way, what you need:
 http://evanhahn.com/how-do-i-jasmine/
 https://jasmine.github.io/pages/docs_home.html
 https://jasmine.github.io/2.9/introduction
 
-###Documentation (JavaScript Testing Framework)
+### Documentation (JavaScript Testing Framework)
 
 [Documentación: primeros pasos 2.9](https://jasmine.github.io/2.9/introduction)
 [Documentación API 2.9](https://jasmine.github.io/api/2.9/global)
 
-###Structure
+### Structure
 It is very important to have a good folder structure, for example, one porposal is like the Hangman game:
 
 - 3 folder:
