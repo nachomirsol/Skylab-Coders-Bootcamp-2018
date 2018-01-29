@@ -144,27 +144,24 @@ a pointer to another object. We call this pointer the object's prototype.
 
 
 ### Polyfill
-We can create and implement, change or extension of our own predefined functions and use them by doing polyfill. For example we can create an array random
+We can create, implement, modify or delete extension of our own predefined functions and use them by doing polyfill. For example we can create an array random.
 shuffle polyfill in order to use it when you need it. You can also change behavior of predefined functions, for example foreach.
 
  ```javascript
 
-Array.prototype.preFilled(num,elm){
-    if(typeof num==="number" && typeof elm != "object"){
-        var arr = [];
-        for(var i = 0;i<num;i++){
-            arr.push(elm);
-        }
-        return arr;
-    }else{
-        return "You need to put number as first param and string or number as second";
-    }
-}
+if (typeof Array.prototype.forEach === 'undefined')
+    Array.prototype.forEach = function (func) {
+        console.log('this is my implementation of forEach!')
+        for (var i = 0; i < this.length; i++)
+            func(this[i]);
+    };
 
 ```
 
 ### Scope (alcance de una variable)
 Scope can be global (accessible outside or inside the function) or local(accesible only inside function)
+
+[![scope javascript](http://i.imgur.com/VwfKlqu.png)](http://i.imgur.com/)
 
 ### Closures (functions inside functions)
 
@@ -174,6 +171,17 @@ The inner function has access not only to the outer function’s variables, but 
 
 This is a good practice if we dont want to load everything each time we invoque function.
 Inside a function inside a method of an object we may want to point a this to the object. We can use a call or self=this outside the closure function to access.
+
+```javascript
+function padre() {
+    var a = 1;
+    function closure() {
+        console.log(a);
+    }
+    closure();
+}
+padre();
+```
 
 ```javascript
 var user = {
@@ -264,7 +272,6 @@ function celebrityID () {
             celebrityID = theNewID;
         }
     }
-​
 }
 ​
 ​var mjID = celebrityID (); // At this juncture, the celebrityID outer function has returned.​
@@ -283,15 +290,12 @@ mjID.getID(); // 567: It returns the updated celebrityId variable 
       theCelebrities[i]["id"] = function ()  {
         return uniqueID + i;
       }
-    }
-    
+    }  
     return theCelebrities;
 }
 ​
 ​var actionCelebs = [{name:"Stallone", id:0}, {name:"Cruise", id:0}, {name:"Willis", id:0}];
-​
 ​var createIdForActionCelebs = celebrityIDCreator (actionCelebs);
-​
 ​var stalloneID = createIdForActionCelebs [0];  console.log(stalloneID.id()); // 103
 ```
 
@@ -331,8 +335,6 @@ var countVowels;
 
 ```
 
-
-
 ### Callback
 
 We talk about Callback when you pass a function as a parameter so that the function you passed executes our param.
@@ -352,7 +354,7 @@ hagoAlgo(function(){
 
 ### Self-executing anonimous function
 
-Self executing functions are functions that executes automatically without invoque them
+Self executing functions are functions with no name that executes automatically without invoque them
 ```javascript
 
 (function() {
@@ -375,6 +377,11 @@ Lets see another example:
 })();
 
 ```
+#### When to use Self-executing functions
+1. If you are in a situation where you want to run a piece of code repeatedly like updating something in the database based on user interaction or fetching records from database every 10 seconds or you want to load new stories via ajax.
+
+2. Another more common use of self-invoking functions is data privacy, everything wrapped in them is only available within the scope of these functions.
+
 
 ### this
 

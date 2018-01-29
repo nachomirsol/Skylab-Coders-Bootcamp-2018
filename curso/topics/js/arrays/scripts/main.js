@@ -416,7 +416,6 @@ console.log(firstElement([7, 9, 0, -2],-3));
 //////////////////////////////////////////
 
 function sortObjectsTitle(){
-    var newLibrary = [];
     var library = [ 
         { author: 'Bill Gates', title: 'The Road Ahead', libraryID: 1254},
         { author: 'Steve Jobs', title: 'Walter Isaacson', libraryID: 4264},
@@ -438,3 +437,66 @@ function sortObjectsTitle(){
 
 }
 sortObjectsTitle();
+
+
+//////////////////////////////////////////
+//Find Pair Sum
+//////////////////////////////////////////
+function findPairSum(arr,target){
+    
+    var pairs = [];
+    for(var i=0;i<arr.length;i++){
+        var temp = i;
+        for(var j=i;j<arr.length;j++){
+            if(parseInt(temp+arr[j])==target){
+                pairs.push(temp,j);
+            }
+        }
+    }
+    return pairs[0]+","+pairs[1];
+}
+findPairSum([10,20,10,40,50,60,70],70);
+
+
+//////////////////////////////////////////
+//Valid values
+//////////////////////////////////////////
+
+
+function validValues(arr){
+    var result = [];
+    var regex = /\d/g;
+    for(var i=0;i<arr.length;i++){
+        if(regex.test(arr[i])===true && arr[i]!=0){
+            result.push(arr[i]);
+        }
+    }
+    return result;
+}
+validValues([NaN, 0, 15, false, -22, '',undefined, 47, null]);
+
+
+//////////////////////////////////////////
+//Longest Common
+//////////////////////////////////////////
+function longestCommon(arr){
+    var mf = 1;
+    var m = 0;
+    var item;
+    for (var i=0; i<arr.length; i++)
+    {
+            for (var j=i; j<arr.length; j++)
+            {
+                    if (arr[i].substring(0,2) == arr[j].substring(0,2))
+                     m++;
+                    if (mf<m)
+                    {
+                      mf=m; 
+                      item = arr[i];
+                    }
+            }
+            m=0;
+    }
+    console.log(item.substring(0,2)+" ( " +mf +" times ) ") ;
+}
+longestCommon(["nacho","nature","jose","felre","rocal","namibia","nacho"]);
