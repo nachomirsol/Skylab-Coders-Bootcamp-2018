@@ -1,0 +1,32 @@
+/* jUMBOTRON SECTION */
+
+.jumbotron{margin:0px;padding:0px;background: url(../img/site_showcase_bg.jpg)}
+h1{color:white;margin-top:100px;margin-bottom:30px;}
+h1 span{color:rgb(92, 194, 146);}
+.para{color:white;margin-bottom:30px;}
+.app{margin-right:20px;}
+
+/* jUMBOTRON SECTION */
+
+
+/* SECTION 1 3 COLUMS WITH IMG, H3 , p text and button */
+
+#section1{margin-top:30px;}
+.imagen{max-width:300px;border: 1px solid rgb(190,190,190);margin-bottom:20px;}
+
+/* SECTION 1 3 COLUMS WITH IMG, H3 , p text and button */
+
+
+/* SECTION 2 Gamma features with camera logo */
+
+#section2{margin-top:30px;background-color:rgb(92, 194, 146);}
+#section2 h3{color:white;margin-top:30px;}
+#section2 img{float:right;}
+#section2 ul li{list-style-type:none;color:white;}
+
+/* Footer */
+footer{background-color:rgb(50,50,50);}
+footer ul{padding:0px;}
+footer ul li{float:left;list-style-type:none;margin-right:10px;color:white;}
+
+/* Footer */

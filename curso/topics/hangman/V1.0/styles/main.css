@@ -1,0 +1,140 @@
+body{
+    margin:0px;
+    padding:0px;
+    width:100%;
+    height:100%;
+    background-color:rgba(0, 119, 255, 0.747);
+    font-family: "Open Sans";
+}
+
+.wrapper{
+    min-width:100%;
+    min-height:100%;
+    margin:auto;
+    padding-bottom:auto;
+}
+.enterword{
+    max-width:500px;
+    margin:auto;
+    margin-top:50px;
+    padding:30px;
+    border:1px solid white;
+}
+
+.enterword .img{
+    width:200px;
+    height:200px;
+    margin:auto;
+    padding-top:100px;
+}
+.enterword .img img{
+    max-width:250px;
+    margin:auto;
+}
+.enterword form{
+    margin:auto;
+    width:300px;
+    height:200px;
+}
+
+.enterword #input{
+    width:200px;
+    height:40px;
+    margin-top:30%;
+
+}
+
+
+.enterword #boton{
+    width:50px;
+    height:40px;
+    margin:auto;
+    background-color:rgb(222, 15, 49);
+    border:none;
+    color:white;
+    margin-left:15px;
+    
+}
+
+.enterword p{
+    color:white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    max-width:350px;
+    font-size:17px;
+    margin:auto;
+    margin-bottom:20px;
+}
+
+.result{
+    max-width:500px;
+    margin:auto;
+    margin-top:50px;
+    padding-top:150px;
+    border: 1px solid white;
+}
+
+.result form{
+    margin:auto;
+    width:300px;
+    height:100px;
+}
+.result h3{
+    color:white;
+    max-width:250px;
+    margin:auto;
+    margin-bottom:20px;
+    font-family:Courier New, Courier, monospace
+}
+
+.result #character{
+    width:200px;
+    height:40px;
+}
+
+
+.result #botontry{
+    width:50px;
+    height:40px;
+    margin:auto;
+    background:rgb(59, 104, 133);
+    border:none;
+    color:white;
+    
+}
+
+.result .intends p{
+    color:white;
+    max-width:200px;
+    margin-top:50px;
+    font-size:20px;
+    margin:auto;
+    height:40px;
+}
+
+.result .showlength p{
+    color:white;
+    max-width:200px;
+    margin-top:50px;
+    font-size:20px;
+    margin:auto;
+    height:40px;
+}
+
+
+.result .showright p{
+    color:white;
+    max-width:200px;
+    margin-top:50px;
+    font-size:20px;
+    margin:auto;
+    height:40px;
+}
+
+.finish{
+
+    display:none;
+    max-width:500px;
+    margin:auto;
+    padding-top:50px;
+}
+

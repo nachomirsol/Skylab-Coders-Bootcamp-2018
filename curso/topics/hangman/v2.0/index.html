@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <div class="wrapper">
+       <section class="enterword">
+            <div class="img">
+                <img src="img/Hangman_game.png">
+            </div>
+            <form>
+                <input type="password" placeholder="Enter the word" id="input" val="">
+                <button id="boton">Go</button>
+            </form>
+            <p>Welcome to Hangman game, first introduce the word you want, then try characters</p>
+        </section>
+
+        <section class="result">
+            <h3>Introduce characters</h3>
+            <form>
+                <input type="text" id="character" value="" placeholder="enter char" maxlength="1">
+                <button id="botontry">Try</button>
+            </form>
+
+            <div class="intends">
+                <p></p>
+            </div>
+
+            <div class="showlength">
+                <p></p>
+            </div>
+
+            <div class="showright">
+                <p></p>
+            </div> 
+        </section>
+        <section class="finish">
+                <iframe src="https://giphy.com/embed/gTURHJs4e2Ies" width="480" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        </section>
+
+
+    </div>
+
+
+    
+    <script src="scripts/hangman.js"></script>
+    <script src="vendor/jquery/3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="scripts/main.js"></script>
+
+</body>
+
+</html>

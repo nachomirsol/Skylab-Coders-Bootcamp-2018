@@ -2,7 +2,7 @@
 ////////////////////////////////////AHORCADO/////////////////////////////////////
 
 ////////////////////////////////////AHORCADO/////////////////////////////////////
-function Hangman(word,attempt){
+function Hangman(word,attempts){
 
     arrayWord = word.split("");
     function array_filled(num,elm){
@@ -17,6 +17,7 @@ function Hangman(word,attempt){
         }
     }
 
+
     var guiones = array_filled(word.length,"_");// reutilizamos la funcion array filled
     var lettersTried = [];
 
@@ -24,19 +25,19 @@ function Hangman(word,attempt){
        
             if(word.indexOf(letter)===-1){
                 console.log("no");
-                attempt--;
+                attempts--;
                 lettersTried.push(letter);
-                console.log(guiones,attempt)
+                return(guiones,attempts)
             }else{
                 for(var i=0;i<arrayWord.length;i++){
                     if(word[i]===letter){
                         guiones[i] = letter;
                     } 
                 }
-                console.log(guiones,attempt);
+                return(guiones,attempts);
             }       
     }
 }
 
-var result = new Hangman("expected",10);
-result.try("e");
+//var result = new Hangman("expected",10);
+//result.try("e");
