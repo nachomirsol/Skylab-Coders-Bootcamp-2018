@@ -162,6 +162,96 @@ if (typeof Array.prototype.forEach === 'undefined')
 Scope can be global (accessible outside or inside the function) or local(accesible only inside function)
 
 [![scope javascript](http://i.imgur.com/VwfKlqu.png)](http://i.imgur.com/)
+### Callback
+
+We talk about Callback when you pass a function as a parameter so that the function you passed executes our param.
+Just to understand myself, when we invoke our callback function i say: I want you to do this(mult) with this argument
+
+```javascript
+
+function hagoAlgo(callback) {
+    callback();
+}
+
+hagoAlgo(function(){
+    console.log('Hola Anexsoft !!');
+});
+
+```
+
+Another example
+
+```javascript
+// Ejemplo de la calculadora, con estos datos que te paso, quiero que hagas esto otro(suma,resta)
+let sum = (a,b)=>{return a+b}
+let subs = (a,b)=>{return a-b}
+let mult = (a,b)=>{return a*b}
+let div = (a,b)=>{return a/b}
+
+let calc=(num1,num2,callback)=>{
+    return callback(num1,num2);
+}
+
+calc(3,4,mult)
+```
+One more example
+
+```javascript
+var rankingUsers = [
+    {id:1,name:"nacho",hits:30},
+    {id:2,name:"lucia",hits:50},
+    {id:1,name:"rovas",hits:20}
+];
+
+
+let addToRank = (userdata,callback)=>{
+
+    setTimeout(function(){
+        rankingUsers.push(userdata);
+    },500);
+    callback()
+
+}
+
+
+let getRank = ()=>{
+    setTimeout(function(){
+        console.log(rankingUsers)
+    },1000)
+
+}
+addToRank({id:4,name:"jorge",hits:15},getRank)
+```
+### Self-executing anonimous function
+
+Self executing functions are functions that executes automatically without invoque them
+```javascript
+
+(function() {
+	alert('Hello World');
+})();// ()brackets is what allows the function to execute
+
+```
+
+Lets see another example:
+
+```javascript
+(function() {
+	var Person = {
+		sayHello: function() {
+			alert('Hello World');
+		}
+	}
+
+	Person.sayHello();//What is going to execute
+})();
+
+```
+
+### Recursive functions
+
+We talk about recursion or recursive functions when we have a function that executes itself inside the function.
+This can be really useful when we need to make some iteration and we cant apply standard loops. 
 
 ### Closures (functions inside functions)
 
@@ -335,6 +425,7 @@ var countVowels;
 
 ```
 
+<<<<<<< HEAD
 ### Callback
 
 We talk about Callback when you pass a function as a parameter so that the function you passed executes our param.
@@ -383,6 +474,8 @@ Lets see another example:
 2. Another more common use of self-invoking functions is data privacy, everything wrapped in them is only available within the scope of these functions.
 
 
+=======
+>>>>>>> 4bdb1057c261d182671b8a4a231671e27123f2b5
 ### this
 
 This es una propiedad del contexto de ejecución. El valor del this en el código global es siempre el Objeto Global.
