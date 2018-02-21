@@ -2,6 +2,26 @@
 
 __Importante:__ [Documentación node](https://nodejs.org/dist/latest-v6.x/docs/api/)
 
+### NODE CONCEPTS
+Node es un entorno de ejecución, intérprete de javascript del lado del servidor que utiliza el motor V8 de google.
+
+### BUFFER
+Es un almacen temporal para un paquete de datos que se transfieren de un lugar a otro. Cuando el buffer se llena, se pasan los datos
+
+### PIPEs
+Los pipes en node se utilizan para pasar el resultado de una función a la siguiente. Combinando los pipes con streams podemos conectar paquetes de código, manipular los datos de una forma específica y pasarlo a la sigueinte pieza de código.
+
+Quiero listar directorios que tengan la palabra array, por ejemplo. Podemos filtrar, filtrar búsquedas.
+ls -l node_modules/ | grep array
+$ grep node_modules -r -e buffer | grep state
+grep buscame en la carpeta de forma recursiva la expresión que contenga x
+
+### STREAMS
+Los streams son paquetes de datos como lo son los arrays y los strings pero que no ocupan espacio en memoria. A diferencia de un array, tu no sabes la longitud de este flujo de datos, puede ser indefinido. El concepto de stream hace referencia a cuando podemos mostrar paquetes de datos antes de recibir el conjunto entero de los mismos, es decir, no tenemos todo el paquete de datos en memoria y luego lo consumimos. Los streams pueden ser readable o writtable.
+
+### SOCKET
+Un socket es un canal de comunicación abierto entre cliente y servidor para poder establecer una comunicación 
+
 Como acceder a la console de Node desde la consola:
 
 ```bash
@@ -73,7 +93,7 @@ Utilizar devtool en un archivo en concreto:
 ```bash
 $ devtool --break <name-file> 
 ```
-
+command+r para debugar, refresca
 ### Global y Process
 
 Global: es donde se almacena todo en node. Para ver global en Node:
@@ -134,6 +154,10 @@ Ejemplo:
 ```Javascript
 const suma = require('./suma')
 ```
+
+
+### node modules
+npm i bl generará node_modules
 
 __Resources:__
     * [cookie-session](https://github.com/expressjs/cookie-session): paquete para trabajar con cookies personalizadas, no requiere express. Además guarda la sessión data en el servidor.
