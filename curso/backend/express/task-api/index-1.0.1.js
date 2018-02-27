@@ -62,6 +62,7 @@ router.delete("/delete/task/:id", jsonBodyParser, (req, res) => {
 
 })
 
+
 //eliminar todas las tareas
 router.delete("/deleteall/tasks", jsonBodyParser, (req, res) => {
     try {
@@ -72,6 +73,7 @@ router.delete("/deleteall/tasks", jsonBodyParser, (req, res) => {
         res.send(err.message)
     }
 })
+
 
 //actualizar tareas realizadas
 router.put("/done/task/:id", jsonBodyParser, (req, res) => {

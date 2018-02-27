@@ -22,7 +22,7 @@ Arrancar servidor:
 const app = express()
 ```
 ### Work flow
-Mediante un entorno de cliente (formulario HTML, POSTMAN...) realizaremos una request al servidor por url, que estará a la escucha a través de un puerto.
+Mediante un entorno de cliente (formulario HTML, POSTMAN...) realizaremos una request al servidor por url con req.params/req.body , que estará a la escucha a través de un puerto.
 Le pasaremos al servidor desde cliente el cuerpo o contenido (req.body), el servidor lo procesa y devuelve una response o res (res.send, res.json...)
 
 ### Public & Private
