@@ -10,7 +10,7 @@ app.set('view engine', 'pug')
 const tasks = []
 // Por defecto muestra el index en el directorio raiz
 app.get('/',(req,res) => {
-   res.render("index",{tasks})
+   res.render("index",{tasks})//{tasks} de esta forma lo mandamos al index.pug
 })
 
 app.post('/tasks', formBodyParser, (req,res) => {

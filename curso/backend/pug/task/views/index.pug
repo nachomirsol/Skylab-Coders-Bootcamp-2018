@@ -9,7 +9,7 @@ html(lang="es")
      form(action="/tasks", method="post")
       input(type="text", name="text")
       input(type="submit", value="add task")
-     - const taskTodo = tasks.some(task => !task.done)
+     - const taskTodo = tasks.some(task => task.done===false)// para ejecutar javascript utilizamos el guión
         if taskTodo
             h2 TODO
              ul
@@ -17,7 +17,6 @@ html(lang="es")
                if !task.done
                 li #{task.text}
                  a(href='/tasks/'+task.id+'/done')  &#9989
-
      - const taskDone = tasks.some(task => task.done)
         if taskDone
             h2 DONE

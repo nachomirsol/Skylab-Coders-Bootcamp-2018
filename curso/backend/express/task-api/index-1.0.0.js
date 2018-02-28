@@ -66,7 +66,7 @@ app.put("/api/update/task/:id", jsonBodyParser, (req,res) => {
 //eliminar una tarea
 app.delete("/api/delete/task/:id", jsonBodyParser, (req,res) => {
     const id = req.params.id
-    const index = tasks.findIndex(taskelement => taskelement.id===id)
+    const index = tasks.findIndex(taskelement => taskelement.id==id)
     if(index<0){
         res.send("task does not exist")
 
@@ -91,7 +91,7 @@ app.delete("/api/deleteall/tasks",jsonBodyParser, (req,res) => {
 //actualizar tareas realizadas
 app.put("/api/done/task/:id",jsonBodyParser, (req,res) => {
     const id = req.params.id
-    const index = tasks.findIndex((taskelement) => taskelement.id === id)
+    const index = tasks.findIndex((taskelement) => taskelement.id == id)
     if(index<0){
         res.send("task does not exist")
     }else{
