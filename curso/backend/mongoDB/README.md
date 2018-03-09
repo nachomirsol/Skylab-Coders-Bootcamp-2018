@@ -11,7 +11,7 @@ Poner la ruta de los binarios en la variable PATH:
 ```
 
 ### Arrancar servidor MongoDb
-En consola arrancamos el servidor, nos colocamos en la carpeta raiz de mongo:
+En consola arrancamos el servidor, nos colocamos en la carpeta raiz de mongo, la carpeta que nos hemos instalado:
 ```bash
 ./bin/mongod --dbpath ./db
 ```
@@ -114,6 +114,19 @@ $ mongoimport -h <host>:<port> -d <database-name> -c <collection-name> -u <usern
 
 $ mongoexport -h <host>:<port> -d <database-name> -c <collection-name> -u <username> -p <password>  --jsonArray -o <json-array-file>
 ```
+
+### Mongo Remoto
+- Nos registramos en la web https://mlab.com/home
+- Nos creamos una nueva base de datos y colecciones para dicha base de datos.
+- El programa nos facilitará una url de conexión y puerto que utilizaremos para nuestro proyecto.
+
+### Robomongo
+Es un software que nos permite trabajar con mongo de forma visual, sin consola. Podemos conectarnos a bases de datos locales o remotas (mlab)v
+
+### Experimentar Mongo Db
+Siguiendo los pasos de esta url: https://docs.mongodb.com/getting-started/shell/import-data/ podemos importarnos una base de datos de restaurante gigante.
+Consiste en un fichero json. Para poder importarlo debemos tener arrancado el mongo client y el mongo server. Con robomongo podemos experimentar consultas
+una vez importada y creada la nueva base de datos.
 
 ## Hints
 

@@ -25,6 +25,17 @@ body
                         input(type='username', value=user.username)
                         input(type='password', value=user.password)
                         input(type='submit', value='update')
+                    a(href='/')
+                        button(type="button") back
                 else
                     a(href=`/?show=${user._id}`)
                         button(type="button") edit
+    h3 Filter
+        form(action='/filter', method='GET')
+            input(type='text', name='name', placeholder='your name')
+            input(type='text', name='surname', placeholder='your surname')
+            input(type='email', name='email', placeholder='your email')
+            input(type='username', name='username', placeholder='your username')
+            input(type='password', name='password', placeholder='your password')
+            input(type='submit', value='filter')
+    br

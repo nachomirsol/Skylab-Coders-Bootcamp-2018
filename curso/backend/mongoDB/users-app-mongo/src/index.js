@@ -19,9 +19,14 @@ MongoClient.connect('mongodb://localhost:27017/bootcamp', (err,connection) => {
      
         // mostramos los usuarios de la tabla o documento users
         app.get('/', (req, res) => {
-            db.collection('users').find().toArray((err,data) => {
+
+            const query = req.query.q || req.query.query || ''
+            const regex = new RegExp(query,'i')
+
+            db.collection('users').find({name:regex}).toArray((err,data) => {//data es todo el array de objetos
 
                 let show = req.query.show
+                
                 let updateData = data.map(userItem => {
                     userItem.showForm = (userItem._id == show)
                     return userItem
@@ -31,6 +36,23 @@ MongoClient.connect('mongodb://localhost:27017/bootcamp', (err,connection) => {
         })
 
 
+        app.get('/filter', (req, res) => {
+
+            const { name,surname,email,username,password } = req.query
+            //const regex = new RegExp(query,'i')
+
+            db.collection('users').find({name:name}).toArray((err,data) => {//data es todo el array de objetos
+
+                let show = req.query.show
+                
+                let updateData = data.map(userItem => {
+                    userItem.showForm = (userItem._id == show)
+                    return userItem
+                })
+                res.render('index',{updateData})
+            })
+        })
+
         
         app.post('/register',formBodyParser, (req,res) => {
             const { name,surname,email,username,password } = req.body
@@ -38,7 +60,15 @@ MongoClient.connect('mongodb://localhost:27017/bootcamp', (err,connection) => {
             if(!name){
                 console.log("You must insert data")
             }else{
-                db.collection('users').insert({ name:name, surname:surname, email:email, username:username, password:password })
+
+                db.collection('users').find().toArray((err,data) => {
+                    const item = data.some(elm => elm.name === name)
+                    console.log(item)
+                    if(item){`There is already a user with name ${name}`}else{
+                        db.collection('users').insert({ name:name, surname:surname, email:email, username:username, password:password })
+                    }
+                    
+                })
             }                      
             res.redirect('/')
         })
@@ -59,9 +89,11 @@ MongoClient.connect('mongodb://localhost:27017/bootcamp', (err,connection) => {
        app.post('/update/:id',formBodyParser,(req,res) => {
             const id = req.params.id
             const { name,surname,email,username,password } = req.body
-            //console.log(req.body)
-            db.collection('users').updateOne({"_id":ObjectId(id)},{$set:{name:name,surname:surname, email:email, username:username, password:password}})
-            res.redirect('/')
+
+            db.collection('users').updateOne({"_id":ObjectId(id)},{$set:{name:name,surname:surname, email:email, username:username, password:password}},(err,data) =>{
+                if(err) throw err
+                res.redirect('/')
+            })           
         })
 
     

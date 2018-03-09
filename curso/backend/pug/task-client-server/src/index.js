@@ -11,6 +11,7 @@ app.set('view engine', 'pug')
 //app.get para que por defecto muestre el index, luego llamamos a la api con axios a show/tasks, que es la url de nuestra api que devuelve el listado de tareas
 //finalmente lo renderizamos
 app.get('/', (req, res) => {
+    
     axios.get('http://localhost:5000/api/show/tasks').then(object =>{
         res.render('index', { todos: object.data, dones: object.data })
     })

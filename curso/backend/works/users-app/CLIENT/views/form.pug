@@ -1,0 +1,24 @@
+html
+ body
+  h4 Formulario
+  form(action="/api/create" method="post")
+   input(type="text" name="name" placeholder="Inserta tu nombre" required)
+   input(type="password" name="password" placeholder="Inserta tu contraseña" required)
+   input(type="submit" value="Añadir Usuario")
+  
+  if users.length
+   h4 Usuarios
+   ul
+    each user in users
+     li #{user.name}
+      a(href=`/api/show/${user.id}`) ✏️
+      if(user.id === _id)
+        form(action=`/api/delete/${user.id}` method="post")
+         input(type="text" name="name" placeholder="Inserta tu nombre")
+         input(type="text" name="password" placeholder="Inserta tu contraseña")
+         input(type="submit" value="Delete")
+        form(action=`/api/update/${user.id}` method="post")
+         input(type="text" name="name" placeholder="Inserta tu nombre")
+         input(type="text" name="password" placeholder="Inserta tu contraseña")
+         input(type="text" name="newPassword" placeholder="Inserta tu nueva contraseña")
+         input(type="submit" value="Update")
