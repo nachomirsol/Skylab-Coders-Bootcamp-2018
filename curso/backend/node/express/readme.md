@@ -118,7 +118,7 @@ app.post('/ruta',(req,res)=>{               //notese que se usa el .post
     })
 ```
 
-### Router
+### Router
 
 Router sirve para realizar las llamadas post, get, put y delete, a las rutas sin tener que definirlas cada vez como en los ejemplos anteriores.
 
